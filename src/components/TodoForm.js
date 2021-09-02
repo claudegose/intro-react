@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
-function TodoForm (e) {
+function TodoForm (props) {
     const [input, setInput] = useState("");
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         setInput(e.target.value);
     }
 
@@ -12,10 +12,10 @@ function TodoForm (e) {
     const handleSubmit = e => {
         e.preventDefault();
 
-        // e.onSubmit({
-        //     id: Math.floor(Math.random() *10000),
-        //     text: input
-        // })
+        props.onSubmit({
+            id: Math.floor(Math.random()*10000),
+            text: input
+        });
 
         setInput("");
 
