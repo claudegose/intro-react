@@ -1,7 +1,13 @@
 import React, {useState} from "react";
 
-function TodoForm () {
+function TodoForm (e) {
     const [input, setInput] = useState("");
+
+    const handleChange = (e) => {
+        setInput(e.target.value);
+    }
+
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -23,6 +29,7 @@ function TodoForm () {
                 value={input}
                 name="text"
                 className="todo-input"
+                onChange={handleChange}
                 />
 
             <button className="todo-button">Add Todo</button>
